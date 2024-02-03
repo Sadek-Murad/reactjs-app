@@ -16,10 +16,10 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image 
-        run: docker build -t integrationninjasreactjs-app .
+        run: docker build -t sadokiee/integrationninjasreactjs-app .
 
       - name: Publish image to docker hub
-        run: docker push integrationninjasreactjs-app:latest
+        run: docker push sadokiee/integrationninjasreactjs-app:latest
         
 
   deploy:
@@ -27,10 +27,10 @@ jobs:
    runs-on: aws-ec2 
    steps:
     - name: Pull image from docker hub
-      run: docker pull integrationninjasreactjs-app:latest
+      run: docker pull sadokiee/integrationninjasreactjs-app:latest
 
     - name: Delete Old Container 
       run: docker rm -f reactContainer
 
     - name: Run docker container 
-      run: docker run -d -p 3000:80 --name reactContainer integrationninjasreactjs-app
+      run: docker run -d -p 3000:80 --name reactContainer sadokiee/integrationninjasreactjs-app
