@@ -28,7 +28,7 @@ jobs:
    steps:
     - name: Pull image from docker hub
       run: docker pull sadokiee/integrationninjasreactjs-app:latest
-
+    
     - name: Delete Old Container 
       run: docker rm -f reactContainer
 
