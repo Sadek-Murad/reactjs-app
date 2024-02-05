@@ -24,7 +24,7 @@ jobs:
 
   deploy:
    needs: build
-   runs-on: self-hosted
+   runs-on: aws-ec2
    steps:
     - name: Pull image from docker hub
       run: docker pull sadokiee/integrationninjasreactjs-app:latest
