@@ -8,7 +8,7 @@ RUN npm run build
 
 # step 2 server with Nginx
 FROM nginx:1.23-alpine
-WORKDIR /user/share/nginx/html
+WORKDIR /usr/share/nginx/html
 RUN rm -rf *
 COPY --from=build /app/build .
 EXPOSE 80
