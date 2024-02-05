@@ -8,9 +8,9 @@ RUN npm run build
 
 # step 2 server with Nginx
 FROM nginx:1.23-alpine
-WORKDIR /user/share/Nginx/html
+WORKDIR /user/share/nginx/html
 RUN rm -rf *
 COPY --from=build /app/build .
 EXPOSE 80
-ENTRYPOINT [ "Nginx", "-g" "deamon off;"]
+ENTRYPOINT [ "nginx", "-g", "deamon off;"]
 
